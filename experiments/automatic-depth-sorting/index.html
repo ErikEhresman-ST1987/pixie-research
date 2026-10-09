@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#15212a"><title>Pixie Research — Automatic Depth Sorting</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#15212a;color:#f2f5f7;font:16px system-ui,sans-serif}main{max-width:900px;margin:auto;padding:16px}a{color:#a8ece5}#stage{width:100%;aspect-ratio:4/3;max-height:480px;background:#456e50;border:1px solid #789;border-radius:8px;overflow:hidden;touch-action:none}canvas{display:block;width:100%;height:100%}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}button{font:inherit;padding:12px;min-height:44px;border:0;border-radius:8px}#status{min-height:2.5em;line-height:1.5}h1{font-size:clamp(1.5rem,4vw,2rem)}</style></head>
+<body><main><p><a href="../../">← All experiments</a></p><h1>Experiment 02: Automatic Depth Sorting</h1><p>Drag the yellow character above and below the trees and stone. Watch it pass behind and in front automatically.</p><div id="stage" aria-label="Interactive PixiJS scene"></div><div class="controls"><button id="mode">Automatic sorting: ON</button><button id="reset">Reset position</button></div><p id="status" role="status">Loading PixiJS…</p></main>
+<script src="https://cdn.jsdelivr.net/npm/pixi.js@8.21.0/dist/pixi.min.js"></script>
+<script>
+(async()=>{
+const host=document.getElementById('stage'),status=document.getElementById('status'),modeButton=document.getElementById('mode');
+if(!window.PIXI){status.textContent='PixiJS did not load. This test currently needs an internet connection.';return;}
+const app=new PIXI.Application();
+await app.init({resizeTo:host,background:'#456e50',antialias:true,resolution:Math.min(window.devicePixelRatio||1,2)});
+app.canvas.style.width='100%';app.canvas.style.height='100%';host.appendChild(app.canvas);
+const world=new PIXI.Container(),ground=new PIXI.Container(),objects=new PIXI.Container();
+app.stage.addChild(world);world.addChild(ground,objects);objects.sortableChildren=true;
+const path=new PIXI.Graphics().roundRect(40,305,720,125,48).fill(0xb9a47e);ground.addChild(path);
+function tree(x,y,shade){const c=new PIXI.Container();c.position.set(x,y);const g=new PIXI.Graphics();g.ellipse(0,-5,34,12).fill({color:0x243d2e,alpha:.25});g.roundRect(-11,-88,22,84,5).fill(0x77543b);g.circle(0,-100,57).fill(shade);g.circle(-25,-120,29).fill(0x6aa66c);c.addChild(g);c.zIndex=y;objects.addChild(c);return c;}
+function stone(x,y){const c=new PIXI.Container();c.position.set(x,y);c.addChild(new PIXI.Graphics().ellipse(0,-6,50,13).fill({color:0x233c2d,alpha:.2}).roundRect(-48,-70,96,63,25).fill(0x9faab0).roundRect(-34,-60,50,18,8).fill(0xc6ced0));c.zIndex=y;objects.addChild(c);return c;}
+tree(250,295,0x3b8456);stone(545,390);tree(440,205,0x3b7957);
+const player=new PIXI.Container();const art=new PIXI.Graphics().ellipse(0,-5,24,8).fill({color:0x213b2c,alpha:.25}).circle(0,-34,26).fill(0xffdb58).circle(-8,-40,3).fill(0x493a1a).circle(8,-40,3).fill(0x493a1a).roundRect(-16,-16,32,12,5).fill(0xe7a842);player.addChild(art);player.eventMode='static';player.cursor='grab';player.hitArea=new PIXI.Rectangle(-34,-65,68,72);objects.addChild(player);
+let automatic=true,dragging=false;const start={x:170,y:390};
+function update(){player.zIndex=automatic?player.y:9999;objects.sortChildren();modeButton.textContent='Automatic sorting: '+(automatic?'ON':'OFF');status.textContent=automatic?'Automatic: objects are ordered by their ground-contact Y position.':'Fixed: character stays in front of all obstacles.';}
+function position(x,y){player.position.set(Math.max(35,Math.min(765,x)),Math.max(80,Math.min(570,y)));update();}
+player.on('pointerdown',e=>{dragging=true;player.cursor='grabbing';e.stopPropagation();});
+function move(e){if(!dragging)return;const p=world.toLocal(e.global);position(p.x,p.y);}
+app.stage.eventMode='static';app.stage.hitArea=app.screen;app.stage.on('globalpointermove',move);
+function stop(){dragging=false;player.cursor='grab';}
+app.stage.on('pointerup',stop);app.stage.on('pointerupoutside',stop);window.addEventListener('pointerup',stop);
+modeButton.addEventListener('click',()=>{automatic=!automatic;update();});
+document.getElementById('reset').addEventListener('click',()=>position(start.x,start.y));
+function fit(){const w=host.clientWidth,h=host.clientHeight,s=Math.min(w/800,h/600);world.scale.set(s);world.position.set((w-800*s)/2,(h-600*s)/2);app.stage.hitArea=app.screen;}
+new ResizeObserver(fit).observe(host);fit();position(start.x,start.y);
+})().catch(e=>{document.getElementById('status').textContent='Initialization error: '+e.message;});
+</script></body></html>
