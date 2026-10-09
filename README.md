@@ -1,18 +1,27 @@
 # Pixie Research
 
-A lightweight, incremental PixiJS experiment laboratory and reusable example library.
+A lightweight, incremental PixiJS learning laboratory and reference library.
 
-## Method
+## One-place testing
 
-1. Investigate one capability at a time, beginning with Level 1 fundamentals.
-2. Work on a named `research/*` branch and keep that branch's README current.
-3. Record what works, what fails, what remains untested, and which pieces can be reused.
-4. Promote only verified, useful examples to `main` after review.
-5. Prefer high benefit and low complexity, with comfortable performance headroom.
-6. Do not modify existing game projects during this research.
+- **Dashboard source:** [index.html](index.html)
+- **Experiment 01:** [Scene Layering](experiments/scene-layering/index.html)
+- **Research history and detailed experiment README:** [research/scene-layering branch](../../tree/research/scene-layering)
 
-## Research index
+**Website activation:** GitHub Pages must be enabled once in repository Settings → Pages → Build and deployment → Deploy from a branch → `main` → `/(root)`. Until then, GitHub shows source files, not a playable website. Expected Pages address once activated: `https://erikehresman-st1987.github.io/pixie-research/` (not yet verified live).
 
-- `research/scene-layering` — first experiment: independent containers, drawing order, visual state, and basic interaction.
+## Working method
 
-`main` is the stable library index; exploratory implementations remain on their branches until verified.
+1. Choose one capability, beginning with Level 1.
+2. Work in a `research/*` branch with a current README: objective, implementation, verified and unverified results, reusable parts, failures, and limitations.
+3. Make the current test accessible from the single dashboard. This is a **test preview**, not promotion of the technique as validated.
+4. Run the experiment in a browser on the actual device; record what happened.
+5. Keep useful, verified examples as references; discard or label unsuccessful work. Extract a shared module only when genuine reuse justifies it.
+6. Favor high payoff with low total complexity and comfortable device headroom.
+
+The existing games are not modified by this research. The dashboard can display unverified experiments; **validation status belongs to each experiment, not its location in the repository**.
+
+## Current status
+
+- Scene Layering: implemented, not yet browser/device verified.
+- The demo currently uses a pinned online PixiJS 8.21.0 script. Offline hosting is not yet tested.
