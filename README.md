@@ -1,6 +1,6 @@
 # Experiment 05 — Environmental Atmosphere
 
-**Status:** Implemented, awaiting real-device verification. **Branch:** `research/environmental-atmosphere`.
+**Status:** Visual atmosphere and motion qualitatively verified on iPad (user-reported, 2026-10-09); controls and performance not fully verified. **Branch:** `research/environmental-atmosphere`.
 
 ## Objective
 Determine whether simple low-cost water ripples, drifting mist, and a lighting overlay meaningfully enrich a static pond scene without requiring shaders, filters, or a full animation engine.
@@ -17,7 +17,9 @@ PixiJS 8.21.0 from a pinned CDN. A static illustrated pond landscape uses Graphi
 6. Reset. Defaults should return.
 
 ## Verified results
-None yet. Committed code is not device verification.
+- **User-reported iPad observation (2026-10-09):** The water ripples looked like fish moving beneath the surface or a breeze disturbing the water. Subtle lighting suggested a setting sun. Drifting mist gave the scene a strong sense of atmosphere. The user described this as the most compelling experiment yet.
+- This is strong qualitative evidence of **visual payoff** and visible motion for the three atmospheric techniques in the deployed demo. It does not establish measured frame rate, power usage, or long-term performance.
+- Atmosphere ON/OFF, Reduced Motion, Pause/Resume, and Reset were not separately confirmed in this report; those controls remain unverified.
 
 ## Reusable candidates
 - Lightweight water ripple loops using scale and alpha.
@@ -33,4 +35,4 @@ This is a proof of presentation techniques, not a benchmark of sustained frame r
 Low implementation complexity; player-facing value requires visual judgment during device test.
 
 ## Next step
-Record user observations and decide which, if any, effects merit reuse.
+Keep the ripples, mist, and subtle lighting as promising low-complexity reference techniques based on strong user-perceived visual payoff. Verify controls or longer-running performance only if needed for future reuse.
