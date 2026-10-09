@@ -36,3 +36,7 @@ The existing games are not modified by this research. The dashboard can display 
 - **Research synthesis:** [Findings 01–05 and future game examples](RESEARCH-FINDINGS-01-05.md)
 - **Experiment 07:** [Ambient Life](experiments/ambient-life/index.html) — creature visuals user-verified on iPad; controls/activity comparison pending
 - Demos use pinned online PixiJS 8.21.0 scripts. Offline hosting is not yet tested.
+
+## Experiment 08
+
+[Animated Production Activity](EXPERIMENT-08.md) — implemented; real-device verification pending.
