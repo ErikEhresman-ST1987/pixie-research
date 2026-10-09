@@ -1,27 +1,40 @@
-# Pixie Research
+# Experiment 02 — Automatic Depth Sorting
 
-A lightweight, incremental PixiJS learning laboratory and reference library.
+**Status:** Implemented, awaiting real-device testing. **Branch:** `research/automatic-depth-sorting`.
 
-## One-place testing
+## Objective
+Test whether sorting scene objects by their ground-contact Y coordinate makes a character naturally appear in front of or behind obstacles without manual layer buttons.
 
-- **Dashboard source:** [index.html](index.html)
-- **Experiment 01:** [Scene Layering](experiments/scene-layering/index.html)
-- **Research history and detailed experiment README:** [research/scene-layering branch](../../tree/research/scene-layering)
+## Implementation
+PixiJS v8.21.0. A world container contains ground and a sortable object container. Three obstacles and a draggable character each use their ground-contact point as their container origin. When automatic sorting is enabled, the character's `zIndex` follows its Y position; obstacle `zIndex` values use their fixed Y positions. PixiJS `sortableChildren` and `sortChildren()` establish drawing order. Fixed mode sets the character above everything to provide a comparison. Plain HTML controls and a capped canvas support touch-first use.
 
-**Website activation:** GitHub Pages must be enabled once in repository Settings → Pages → Build and deployment → Deploy from a branch → `main` → `/(root)`. Until then, GitHub shows source files, not a playable website. Expected Pages address once activated: `https://erikehresman-st1987.github.io/pixie-research/` (not yet verified live).
+## How to run
+From the [single research dashboard](https://erikehresman-st1987.github.io/pixie-research/), choose Experiment 02. It currently loads PixiJS from a pinned CDN and requires internet access.
 
-## Working method
+## Test procedure
+1. Drag the yellow character upward behind the tree at left; it should be partly hidden when its feet are above the tree's base.
+2. Drag downward below that tree; the character should appear in front.
+3. Repeat with the central tree and gray stone.
+4. Switch automatic sorting OFF. The character should remain in front regardless of position.
+5. Switch sorting ON and use Reset. Verify controls and drag behavior on iPad Safari.
 
-1. Choose one capability, beginning with Level 1.
-2. Work in a `research/*` branch with a current README: objective, implementation, verified and unverified results, reusable parts, failures, and limitations.
-3. Make the current test accessible from the single dashboard. This is a **test preview**, not promotion of the technique as validated.
-4. Run the experiment in a browser on the actual device; record what happened.
-5. Keep useful, verified examples as references; discard or label unsuccessful work. Extract a shared module only when genuine reuse justifies it.
-6. Favor high payoff with low total complexity and comfortable device headroom.
+## Results
+Not yet tested on a real device. Committed code is not proof of browser execution.
 
-The existing games are not modified by this research. The dashboard can display unverified experiments; **validation status belongs to each experiment, not its location in the repository**.
+## Reusable candidates
+- `sortableChildren` and `zIndex` using world Y coordinates.
+- Consistent ground-contact anchor convention for illustrated objects.
+- Touch dragging with coordinate conversion from screen to world.
+- Toggle between comparison modes for visual research.
 
-## Current status
+## Limitations
+- Works as a simple 2.5D visual illusion, not collision detection or pathfinding.
+- Single movable character, three static obstacles; no performance or scale benchmark.
+- Tall or irregular artwork can require more precise sorting anchors or multiple visual parts.
+- No persistence, animation, artwork pipeline, offline mode, or verified cross-device behavior.
 
-- Scene Layering: implemented, not yet browser/device verified.
-- The demo currently uses a pinned online PixiJS 8.21.0 script. Offline hosting is not yet tested.
+## Complexity / payoff
+Expected low-to-moderate implementation complexity with potentially high reuse; practical value and performance remain unverified.
+
+## Next step
+Collect actual iPad observations, record any failures, then decide whether this is a useful reference example.
