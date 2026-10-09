@@ -1,6 +1,6 @@
 # Experiment 03 — Visual State Changes
 
-**Status:** Implemented, awaiting real-device verification. **Branch:** `research/visual-state-changes`.
+**Status:** Core interaction verified on iPad (user-reported, 2026-10-09); broader testing pending. **Branch:** `research/visual-state-changes`.
 
 ## Objective
 Test whether touch-driven state changes can update existing PixiJS display objects clearly without rebuilding the scene or making the renderer the authority for state.
@@ -16,7 +16,9 @@ Six independent interactive tiles cycle through Available, Selected, Active, and
 5. Observe whether colors, symbols, and touch targets are clear on iPad Safari.
 
 ## Verified results
-None yet; committed code is not a device test.
+- **User-reported iPad test (2026-10-09):** Everything worked as expected; visual appearance was described as beautiful and changes as instantaneous.
+- This supports the core touch-driven visual state demonstration on the tested device, including the overall intended behavior. Exact timing was not instrumented or measured.
+- Cross-device compatibility, performance at scale, and offline behavior remain unverified.
 
 ## Reusable candidates
 - State-to-appearance mapping without duplicating game-state ownership.
@@ -25,10 +27,10 @@ None yet; committed code is not a device test.
 - Redundant visual signals: color, outline, and symbol.
 
 ## Limitations
-No persistence, animation, gameplay consequences, asset loading, performance benchmark, or cross-device verification. The tile labels are generic, and this is not a usability study of actual game art. Uses PixiJS 8.21.0 from a CDN; offline operation not tested.
+No persistence, animation, gameplay consequences, asset loading, performance benchmark, or cross-device verification beyond the reported iPad test. The tile labels are generic, and this is not a usability study of actual game art. Uses PixiJS 8.21.0 from a CDN; offline operation not tested.
 
 ## Complexity and payoff
 Expected low complexity and high reuse potential, pending device observation.
 
 ## Next step
-Record the user's actual test results, including any interaction or clarity problems, before declaring the technique verified.
+Keep as a successful iPad-tested reference. Test other devices or larger object counts only if future reuse requires it.
