@@ -1,6 +1,6 @@
 # Experiment 08 — Animated Production Activity
 
-**Status:** Visual presentation positively assessed on iPad; individual controls and production-state behavior await explicit verification. **Branch:** `research/production-activity`.
+**Status:** Visual presentation, pause, effects-off progress independence, and reset verified by user on iPad; reduced-motion and other devices unverified. **Branch:** `research/production-activity`.
 
 ## Objective
 Test whether lightweight production animation makes work status readable and appealing, while ensuring presentation follows authoritative activity state rather than creating it.
@@ -17,7 +17,7 @@ PixiJS 8.21.0 pinned CDN. A static workshop with a rotating wheel, rising/fading
 6. Reset; confirm ready state and empty progress bar.
 
 ## Verification
-**User-reported iPad observation (2026-10-09):** The workshop experiment was described as very cool and highly effective despite its simplified graphics. This supports qualitative visual payoff of simple production animation. The user did not separately confirm wheel/smoke behavior, progress completion, pause/resume, effects OFF, reduced motion, or reset; do not count these as verified. No measured FPS, long-term battery, cross-device compatibility, or offline verification.
+**User-reported iPad observation (2026-10-09):** The workshop experiment was described as very cool and highly effective despite its simplified graphics. This supports qualitative visual payoff of simple production animation. **Follow-up user report:** Pause worked; turning Effects OFF left the progress bar advancing; Reset worked. This verifies these specific controls and that progress does not depend on visual effects. The user did not separately report reduced-motion behavior or a measured completion timing. No measured FPS, long-term battery, cross-device compatibility, or offline verification.
 
 ## Reuse candidates
 - Little Field Farm bakery/creamery: display activity while existing production state remains authoritative.
