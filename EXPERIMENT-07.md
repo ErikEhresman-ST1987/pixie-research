@@ -1,6 +1,6 @@
 # Experiment 07 — Ambient Life
 
-**Status:** Implemented; real-device testing pending. **Branch:** `research/ambient-life`.
+**Status:** Core creature visuals positively verified on iPad (2026-10-09); activity comparison and controls not yet verified. **Branch:** `research/ambient-life`.
 
 ## Question
 Can a few small, independently animated creatures make a static meadow feel inhabited, without animal AI, pathfinding, gameplay simulation, or visual clutter?
@@ -17,7 +17,7 @@ PixiJS 8.21.0 pinned online. Static meadow/flowers built with Graphics; 5 butter
 6. Reset. Confirm default Gentle/ON/normal motion.
 
 ## Verification
-Source implemented, but no user-reported device results yet. No measured FPS, battery, memory, accessibility preference detection, or cross-device testing.
+**User-reported iPad observation (2026-10-09):** Butterflies were especially effective. Birds conveyed soaring, with subtle changes in wing angle or appearance. Fireflies looked very good. All three types were visible and contributed positively to the scene. These are qualitative visual findings, not confirmation of precise wing mechanics or measured performance. Gentle versus Busy activity, Ambient Life OFF, Reduced Motion, Pause/Resume, and Reset were not separately reported. No measured FPS, battery, memory, accessibility preference detection, or cross-device testing.
 
 ## Candidate reuse
 Little Field Farm: sparing butterflies near flowers or a few birds in the background, if approved and compatible with existing artwork. Stranded Colony: a little ambient life around safe, habitable biomes, without implying collectible wildlife or simulation. Haven's Reach: probably not appropriate for the command deck; consider only if a future location explicitly calls for visible distant life. These are **examples**, not authorizations.
