@@ -24,3 +24,7 @@ Potential approved uses: Little Field Farm plant feedback, Stranded Colony world
 ## Refinement increment — Grass blade deformation (2026-10-09)
 
 Following the iPad report that the grass resembled a clump rotating around a center pin, replaced whole-container rotation with redraw of eleven individually shaped blades. Their base endpoints remain fixed while upper control points and tips shift horizontally with a decaying oscillation. This is still an inexpensive illustrative bend, not a physics simulation. Stone and water reactions, hit zones, and controls are unchanged. **Published for iPad retest; visual naturalness not yet verified.** Compare whether grass appears rooted rather than hinged, and whether movement remains smooth.
+
+## Refinement retest — 2026-10-09
+
+User confirmed on iPad that the updated grass looks natural, bending like wind or a passerby disturbed it. This resolves the previously reported unnatural pivot appearance. This is qualitative visual confirmation, not a performance benchmark or cross-device verification.
