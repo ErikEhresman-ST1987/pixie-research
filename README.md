@@ -33,3 +33,7 @@ The existing games are not modified by this research. The dashboard can display 
 - Simple Animation: core motion and controls user-verified on iPad; [research branch](../../tree/research/simple-animation).
 - Environmental Atmosphere: visual payoff user-verified on iPad; controls/performance unverified; [research branch](../../tree/research/environmental-atmosphere).
 - Demos use pinned online PixiJS 8.21.0 scripts. Offline hosting is not yet tested.
+
+## Experiment 06
+
+[Local Environmental Reactions](EXPERIMENT-06.md) — implemented; awaiting real-device verification.
