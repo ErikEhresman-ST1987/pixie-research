@@ -20,3 +20,7 @@ PixiJS 8.21.0; one responsive world with grass, a stone, and pond. Tap grass for
 
 ## Reusable candidates and limits
 Potential approved uses: Little Field Farm plant feedback, Stranded Colony world interaction, Haven’s Reach console feedback. These are examples, not implementation authorization. No production art, gameplay state changes, fluid/vegetation physics, cross-device testing, or performance measurements. Reduced-motion static cues persist until Reset or motion resumes; evaluate this prototype choice. **Next improvement candidate:** bend grass blades near their base or deform individual blades instead of rotating the entire clump around its center. Do not claim that candidate is verified until tested.
+
+## Refinement increment — Grass blade deformation (2026-10-09)
+
+Following the iPad report that the grass resembled a clump rotating around a center pin, replaced whole-container rotation with redraw of eleven individually shaped blades. Their base endpoints remain fixed while upper control points and tips shift horizontally with a decaying oscillation. This is still an inexpensive illustrative bend, not a physics simulation. Stone and water reactions, hit zones, and controls are unchanged. **Published for iPad retest; visual naturalness not yet verified.** Compare whether grass appears rooted rather than hinged, and whether movement remains smooth.
