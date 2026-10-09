@@ -1,0 +1,24 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#15212a"><title>Pixie Research — Simple Animation</title><style>
+*{box-sizing:border-box}body{margin:0;background:#15212a;color:#f3f6f7;font:16px system-ui,sans-serif}main{max-width:850px;margin:auto;padding:16px}h1{font-size:clamp(1.5rem,4vw,2rem)}a{color:#9be6de}#stage{width:100%;aspect-ratio:4/3;max-height:480px;border:1px solid #829da3;border-radius:10px;overflow:hidden;background:#29444b;touch-action:manipulation}canvas{display:block;width:100%;height:100%}.controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}button{font:inherit;min-height:44px;padding:10px 14px;border-radius:9px;border:0}#status{line-height:1.5;min-height:3em}</style></head><body><main>
+<p><a href="../../">← All experiments</a></p><h1>Experiment 04: Simple Animation</h1><p>Three independent visual effects: a floating orb, a pulsing beacon, and a moving marker. Pause, resume, or reduce motion without changing their underlying state.</p>
+<div id="stage" aria-label="Three animated PixiJS objects"></div><div class="controls"><button id="pause">Pause motion</button><button id="reduce">Reduced motion: OFF</button><button id="reset">Reset motion</button></div><p id="status" role="status">Loading PixiJS…</p></main>
+<script src="https://cdn.jsdelivr.net/npm/pixi.js@8.21.0/dist/pixi.min.js"></script><script>
+(async()=>{
+const host=document.getElementById('stage'),status=document.getElementById('status');
+if(!window.PIXI){status.textContent='PixiJS failed to load. This test requires internet access.';return;}
+const app=new PIXI.Application();await app.init({resizeTo:host,background:'#29444b',antialias:true,resolution:Math.min(devicePixelRatio||1,2)});app.canvas.style.width='100%';app.canvas.style.height='100%';host.appendChild(app.canvas);
+const world=new PIXI.Container();app.stage.addChild(world);
+const labels=['FLOAT','PULSE','MOVE'],centers=[140,400,660];
+for(let i=0;i<3;i++){const panel=new PIXI.Graphics().roundRect(centers[i]-108,125,216,320,18).fill(0x365960).stroke({color:0x6d9097,width:3});world.addChild(panel);const label=new PIXI.Text({text:labels[i],style:{fontFamily:'Arial, sans-serif',fontSize:23,fontWeight:'bold',fill:0xe5f2f1}});label.anchor.set(.5);label.position.set(centers[i],155);world.addChild(label);}
+const orb=new PIXI.Container();orb.position.set(140,292);orb.addChild(new PIXI.Graphics().circle(0,0,43).fill(0xf4c96d).circle(-14,-14,11).fill(0xffe6a0));world.addChild(orb);
+const beacon=new PIXI.Container();beacon.position.set(400,292);const halo=new PIXI.Graphics().circle(0,0,55).fill({color:0x74c6f2,alpha:.22});const core=new PIXI.Graphics().circle(0,0,32).fill(0x72c8f2).circle(0,0,15).fill(0xd8f6ff);beacon.addChild(halo,core);world.addChild(beacon);
+const marker=new PIXI.Container();marker.position.set(660,292);marker.addChild(new PIXI.Graphics().roundRect(-30,-30,60,60,12).fill(0x8ddd99).roundRect(-17,-17,34,34,8).fill(0x33674b));world.addChild(marker);
+const tracks=new PIXI.Graphics().moveTo(587,365).lineTo(733,365).stroke({color:0x93b2b4,width:3});world.addChildAt(tracks,0);
+let elapsed=0,paused=false,reduced=false;const pauseBtn=document.getElementById('pause'),reduceBtn=document.getElementById('reduce');
+function paint(){const a=reduced?0:1;orb.y=292+Math.sin(elapsed*1.7)*36*a;halo.scale.set(1+Math.sin(elapsed*2.5)*.22*a);halo.alpha=reduced?.45:1;marker.x=660+Math.sin(elapsed*1.1)*67*a;}
+function report(){pauseBtn.textContent=paused?'Resume motion':'Pause motion';reduceBtn.textContent='Reduced motion: '+(reduced?'ON':'OFF');status.textContent=(paused?'Paused':'Playing')+' · '+(reduced?'Reduced motion (static positions)':'Float, pulse, and horizontal movement')+'.';}
+app.ticker.add(t=>{if(!paused){elapsed+=Math.min(t.deltaMS,50)/1000;paint();}});
+pauseBtn.addEventListener('click',()=>{paused=!paused;report();});reduceBtn.addEventListener('click',()=>{reduced=!reduced;paint();report();});document.getElementById('reset').addEventListener('click',()=>{elapsed=0;paused=false;reduced=false;paint();report();});
+function fit(){const w=host.clientWidth,h=host.clientHeight,s=Math.min(w/800,h/600);world.scale.set(s);world.position.set((w-800*s)/2,(h-600*s)/2);}new ResizeObserver(fit).observe(host);fit();paint();report();
+})().catch(e=>{document.getElementById('status').textContent='Initialization error: '+e.message;});
+</script></body></html>
