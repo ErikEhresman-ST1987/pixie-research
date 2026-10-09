@@ -34,4 +34,5 @@ The existing games are not modified by this research. The dashboard can display 
 - Environmental Atmosphere: visual payoff user-verified on iPad; controls/performance unverified; [research branch](../../tree/research/environmental-atmosphere).
 - **Experiment 06:** [Local Environmental Reactions](experiments/local-environmental-reactions/index.html) — implemented, awaiting device test
 - **Research synthesis:** [Findings 01–05 and future game examples](RESEARCH-FINDINGS-01-05.md)
+- **Experiment 07:** [Ambient Life](experiments/ambient-life/index.html) — implemented, awaiting device test
 - Demos use pinned online PixiJS 8.21.0 scripts. Offline hosting is not yet tested.
