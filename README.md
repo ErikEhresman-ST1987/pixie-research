@@ -1,6 +1,6 @@
 # Experiment 04 — Simple Animation
 
-**Status:** Implemented, awaiting real-device verification. **Branch:** `research/simple-animation`.
+**Status:** Core animation behavior user-verified on iPad (2026-10-09); wider device/performance testing pending. **Branch:** `research/simple-animation`.
 
 ## Objective
 Test three inexpensive time-based presentation effects—floating, pulsing, and horizontal movement—without coupling gameplay state to animation frames. Test pause and reduced-motion controls.
@@ -17,7 +17,9 @@ PixiJS v8.21.0 via CDN. One Pixi ticker advances elapsed animation time (capped 
 6. Report clarity, smoothness, and any battery/heat or responsiveness concern noticed (no instrumented performance measurement).
 
 ## Verified results
-None yet. Source committed does not establish browser/device success.
+- **User-reported iPad test (2026-10-09):** All three animations moved smoothly. Pause froze the objects at their current positions and Resume restarted motion. Reduced Motion stopped all motion and centered the objects at their static reference positions. Switching back allowed motion to resume. User reported everything worked as expected.
+- These are qualitative observations, not measured frame rates, power consumption, or performance benchmarks. Reset was not separately described in the report.
+- Cross-device behavior and OS-level reduced-motion integration remain unverified.
 
 ## Reusable candidates
 - Single shared Pixi ticker with frame-time cap.
@@ -32,4 +34,4 @@ Not a game system, physics engine, sprite-sheet animation, or performance benchm
 Expected low implementation complexity; value and device performance pending user testing.
 
 ## Next step
-Capture real-device observations and only then mark verified.
+Keep this as a successful iPad-tested reference. Check Reset, other devices, and longer-running performance only when relevant to future reuse.
