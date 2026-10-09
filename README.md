@@ -1,31 +1,35 @@
-# Pixie Research
+# Experiment 04 — Simple Animation
 
-A lightweight, incremental PixiJS learning laboratory and reference library.
+**Status:** Implemented, awaiting real-device verification. **Branch:** `research/simple-animation`.
 
-## One-place testing
+## Objective
+Test three inexpensive time-based presentation effects—floating, pulsing, and horizontal movement—without coupling gameplay state to animation frames. Test pause and reduced-motion controls.
 
-- **Dashboard source:** [index.html](index.html)
-- **Experiment 01:** [Scene Layering](experiments/scene-layering/index.html) — core interaction user-verified on iPad Safari
-- **Experiment 02:** [Automatic Depth Sorting](experiments/automatic-depth-sorting/index.html) — core dragging and depth ordering user-verified on iPad Safari
-- **Experiment 03:** [Visual State Changes](experiments/visual-state-changes/index.html) — core interaction user-verified on iPad Safari
-- **Research history and detailed experiment README:** [research/scene-layering branch](../../tree/research/scene-layering)
+## Implementation
+PixiJS v8.21.0 via CDN. One Pixi ticker advances elapsed animation time (capped per frame to avoid giant jumps after a suspended tab). A single paint function derives three display properties from elapsed time: orb Y position, beacon halo scale, and marker X position. The underlying objects and their conceptual states are unchanged. Pause stops time advancement; reduced motion sets amplitude to zero and restores static reference positions; Reset restores defaults. Responsive canvas uses world scaling and a capped height.
 
-**Website activation:** GitHub Pages must be enabled once in repository Settings → Pages → Build and deployment → Deploy from a branch → `main` → `/(root)`. Until then, GitHub shows source files, not a playable website. Expected Pages address once activated: `https://erikehresman-st1987.github.io/pixie-research/` (not yet verified live).
+## Test procedure
+1. Open Experiment 04 from the [research dashboard](https://erikehresman-st1987.github.io/pixie-research/).
+2. Observe smooth floating, pulsing, and horizontal motion simultaneously.
+3. Tap Pause motion and verify all three stop; Resume should continue.
+4. Toggle Reduced motion ON: all objects should hold still even while playing. Toggle OFF to resume animation.
+5. Tap Reset motion: default motion should return.
+6. Report clarity, smoothness, and any battery/heat or responsiveness concern noticed (no instrumented performance measurement).
 
-## Working method
+## Verified results
+None yet. Source committed does not establish browser/device success.
 
-1. Choose one capability, beginning with Level 1.
-2. Work in a `research/*` branch with a current README: objective, implementation, verified and unverified results, reusable parts, failures, and limitations.
-3. Make the current test accessible from the single dashboard. This is a **test preview**, not promotion of the technique as validated.
-4. Run the experiment in a browser on the actual device; record what happened.
-5. Keep useful, verified examples as references; discard or label unsuccessful work. Extract a shared module only when genuine reuse justifies it.
-6. Favor high payoff with low total complexity and comfortable device headroom.
+## Reusable candidates
+- Single shared Pixi ticker with frame-time cap.
+- Pure presentation updates based on elapsed time.
+- Cheap sine-wave float, pulse, and positional animation.
+- Pause, reset, and reduced-motion toggles.
 
-The existing games are not modified by this research. The dashboard can display unverified experiments; **validation status belongs to each experiment, not its location in the repository**.
+## Limitations
+Not a game system, physics engine, sprite-sheet animation, or performance benchmark. No audio, persistence, offline operation, or cross-device verification. Reduced motion is an explicit in-demo control, not yet wired to OS accessibility preferences. Rendering still uses an online CDN.
 
-## Current status
+## Complexity / payoff
+Expected low implementation complexity; value and device performance pending user testing.
 
-- Scene Layering: core interaction user-verified on iPad Safari.
-- Automatic Depth Sorting: core interaction user-verified on iPad Safari; [research branch](../../tree/research/automatic-depth-sorting).
-- Visual State Changes: core interaction user-verified on iPad; [research branch](../../tree/research/visual-state-changes).
-- Demos use pinned online PixiJS 8.21.0 scripts. Offline hosting is not yet tested.
+## Next step
+Capture real-device observations and only then mark verified.
