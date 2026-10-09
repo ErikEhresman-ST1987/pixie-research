@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pixie Research — Scene Layering</title>
-<style>body{margin:0;background:#15212a;color:#f2f5f7;font:16px system-ui,sans-serif}main{max-width:900px;margin:auto;padding:16px}#stage{width:100%;aspect-ratio:4/3;background:#284b49;border:1px solid #789;border-radius:8px;overflow:hidden}canvas{display:block}button{font:inherit;padding:12px;margin:8px 8px 8px 0;min-height:44px}#status{min-height:1.5em}</style></head>
+<style>body{margin:0;background:#15212a;color:#f2f5f7;font:16px system-ui,sans-serif}main{max-width:900px;margin:auto;padding:16px}#stage{width:100%;max-height:480px;aspect-ratio:4/3;background:#284b49;border:1px solid #789;border-radius:8px;overflow:hidden}canvas{display:block;width:100%;height:100%}button{font:inherit;padding:12px;margin:8px 8px 8px 0;min-height:44px}#status{min-height:1.5em}</style></head>
 <body><main><p><a style="color:#b6eee6" href="../../">← All experiments</a></p><h1>Experiment 01: Scene Layering</h1><p>Tap the yellow marker, move it, or change whether it appears behind the wall.</p><div id="stage"></div><div><button id="layer">Send marker behind wall</button><button id="move">Move marker</button></div><p id="status" role="status"></p></main>
 <script src="https://cdn.jsdelivr.net/npm/pixi.js@8.21.0/dist/pixi.min.js"></script>
 <script>
@@ -9,7 +9,7 @@ const host=document.querySelector('#stage'), status=document.querySelector('#sta
 if(!window.PIXI){status.textContent='PixiJS failed to load. Internet access is required for this first test.';return;}
 const app=new PIXI.Application();
 await app.init({resizeTo:host,background:'#335b52',antialias:true,resolution:Math.min(devicePixelRatio||1,2)});
-host.appendChild(app.canvas);
+app.canvas.style.width='100%';app.canvas.style.height='100%';host.appendChild(app.canvas);
 const world=new PIXI.Container();app.stage.addChild(world);
 const terrain=new PIXI.Container(),behindWall=new PIXI.Container(),structures=new PIXI.Container(),foreground=new PIXI.Container();
 world.addChild(terrain,behindWall,structures,foreground);
@@ -31,7 +31,7 @@ document.querySelector('#layer').textContent=state.behind?'Bring marker in front
 status.textContent='Marker: '+(state.selected?'selected':'not selected')+'; '+(state.behind?'behind':'in front of')+' wall.';
 }
 document.querySelector('#layer').onclick=()=>{state.behind=!state.behind;render();};
-document.querySelector('#move').onclick=()=>{state.x=state.x===440?480:440;render();};
+document.querySelector('#move').onclick=()=>{state.x=state.x===440?330:440;render();};
 function fit(){const w=host.clientWidth,h=host.clientHeight;const scale=Math.min(w/800,h/600);world.scale.set(scale);world.position.set((w-800*scale)/2,(h-600*scale)/2);}
 new ResizeObserver(fit).observe(host);fit();render();
 })().catch(e=>{document.querySelector('#status').textContent='Initialization failed: '+e.message;});
