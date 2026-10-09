@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#15212a"><title>Pixie Research — Environmental Atmosphere</title><style>
+*{box-sizing:border-box}body{margin:0;background:#15212a;color:#f1f5f5;font:16px system-ui,sans-serif}main{max-width:850px;margin:auto;padding:16px}h1{font-size:clamp(1.5rem,4vw,2rem)}a{color:#a4e9df}#stage{width:100%;aspect-ratio:4/3;max-height:480px;overflow:hidden;border:1px solid #829da3;border-radius:10px;background:#355c62;touch-action:manipulation}canvas{display:block;width:100%;height:100%}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}button{font:inherit;min-height:44px;padding:10px 13px;border:0;border-radius:9px}#status{line-height:1.5;min-height:3em}</style></head><body><main>
+<p><a href="../../">← All experiments</a></p><h1>Experiment 05: Environmental Atmosphere</h1><p>Watch a quiet pond scene. Compare moving water, drifting mist, and gentle lighting with a completely still version.</p>
+<div id="stage" aria-label="PixiJS atmospheric pond demonstration"></div><div class="controls"><button id="effects">Atmosphere: ON</button><button id="motion">Reduced motion: OFF</button><button id="pause">Pause</button><button id="reset">Reset</button></div><p id="status" role="status">Loading PixiJS…</p></main>
+<script src="https://cdn.jsdelivr.net/npm/pixi.js@8.21.0/dist/pixi.min.js"></script><script>
+(async()=>{
+const host=document.getElementById('stage'),status=document.getElementById('status');
+if(!window.PIXI){status.textContent='PixiJS failed to load. This test requires internet access.';return;}
+const app=new PIXI.Application();await app.init({resizeTo:host,background:'#7b9b9d',antialias:true,resolution:Math.min(devicePixelRatio||1,2)});app.canvas.style.width='100%';app.canvas.style.height='100%';host.appendChild(app.canvas);
+const world=new PIXI.Container();app.stage.addChild(world);
+const sky=new PIXI.Graphics().rect(0,0,800,600).fill(0x8fb9bb),hills=new PIXI.Graphics().ellipse(170,300,340,160).fill(0x608b79).ellipse(690,320,400,160).fill(0x537f70).rect(0,340,800,260).fill(0x4b7b64);
+world.addChild(sky,hills);
+const bank=new PIXI.Graphics().ellipse(400,465,375,135).fill(0x9ab48a),pond=new PIXI.Graphics().ellipse(400,465,332,113).fill(0x438d9d).ellipse(410,451,290,80).fill({color:0x7fc1ca,alpha:.22});
+world.addChild(bank,pond);
+const trees=new PIXI.Graphics();for(const [x,y,s] of [[80,310,1],[165,330,.8],[650,320,1.1],[735,345,.75]]){trees.roundRect(x-9*s,y-95*s,18*s,110*s,4).fill(0x5b4939).circle(x,y-104*s,42*s).fill(0x356d59).circle(x-20*s,y-115*s,22*s).fill(0x568c69);}world.addChild(trees);
+const rippleLayer=new PIXI.Container();world.addChild(rippleLayer);
+const ripples=[];for(let i=0;i<7;i++){const g=new PIXI.Graphics().ellipse(0,0,34,8).stroke({color:0xd7f7f4,width:2.6});g.position.set(190+(i%4)*135,420+Math.floor(i/4)*72);rippleLayer.addChild(g);ripples.push(g);}
+const mistLayer=new PIXI.Container();world.addChild(mistLayer);const mist=[];for(let i=0;i<5;i++){const g=new PIXI.Graphics().ellipse(0,0,125+(i%2)*45,25).fill({color:0xf0f7f0,alpha:.19});g.position.set(90+i*145,335+(i%2)*65);mistLayer.addChild(g);mist.push(g);}
+const light=new PIXI.Graphics().rect(0,0,800,600).fill(0xffe6ad);light.alpha=.06;world.addChild(light);
+const state={effects:true,reduced:false,paused:false,time:0};const effectsBtn=document.getElementById('effects'),motionBtn=document.getElementById('motion'),pauseBtn=document.getElementById('pause');
+function paint(){const moving=state.effects&&!state.reduced;
+rippleLayer.visible=state.effects;mistLayer.visible=state.effects;light.visible=state.effects;
+ripples.forEach((g,i)=>{const phase=state.time*1.1+i*1.3;g.scale.set(moving?.7+(Math.sin(phase)+1)*.45:1);g.alpha=moving?.15+(Math.sin(phase)+1)*.32:.38;});
+mist.forEach((g,i)=>{g.x=90+i*145+(moving?Math.sin(state.time*.25+i*1.2)*55:0);g.alpha=moving?.55+Math.sin(state.time*.4+i)*.22:.55;});
+light.alpha=moving?.05+(Math.sin(state.time*.4)+1)*.035:.07;
+}
+function report(){effectsBtn.textContent='Atmosphere: '+(state.effects?'ON':'OFF');motionBtn.textContent='Reduced motion: '+(state.reduced?'ON':'OFF');pauseBtn.textContent=state.paused?'Resume':'Pause';status.textContent=(state.effects?'Atmosphere enabled':'Atmosphere disabled')+' · '+(state.reduced?'Static effects':state.paused?'Paused in place':'Moving effects')+'.';}
+effectsBtn.addEventListener('click',()=>{state.effects=!state.effects;paint();report();});
+motionBtn.addEventListener('click',()=>{state.reduced=!state.reduced;paint();report();});
+pauseBtn.addEventListener('click',()=>{state.paused=!state.paused;report();});
+document.getElementById('reset').addEventListener('click',()=>{Object.assign(state,{effects:true,reduced:false,paused:false,time:0});paint();report();});
+app.ticker.add(t=>{if(!state.paused){state.time+=Math.min(t.deltaMS,50)/1000;paint();}});
+function fit(){const w=host.clientWidth,h=host.clientHeight,s=Math.min(w/800,h/600);world.scale.set(s);world.position.set((w-800*s)/2,(h-600*s)/2);}new ResizeObserver(fit).observe(host);fit();paint();report();
+})().catch(e=>{document.getElementById('status').textContent='Initialization error: '+e.message;});
+</script></body></html>
