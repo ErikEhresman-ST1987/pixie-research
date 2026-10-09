@@ -35,5 +35,5 @@ The existing games are not modified by this research. The dashboard can display 
 - **Experiment 06:** [Local Environmental Reactions](experiments/local-environmental-reactions/index.html) — implemented, awaiting device test
 - **Research synthesis:** [Findings 01–05 and future game examples](RESEARCH-FINDINGS-01-05.md)
 - **Experiment 07:** [Ambient Life](experiments/ambient-life/index.html) — creature visuals user-verified on iPad; controls/activity comparison pending
-- **Experiment 08:** [Animated Production Activity](experiments/production-activity/index.html) — implemented, awaiting device test
+- **Experiment 08:** [Animated Production Activity](experiments/production-activity/index.html) — visual presentation positively assessed on iPad; controls and state behavior pending
 - Demos use pinned online PixiJS 8.21.0 scripts. Offline hosting is not yet tested.
