@@ -8,6 +8,7 @@ A lightweight, incremental PixiJS learning laboratory and reference library.
 - **Experiment 01:** [Scene Layering](experiments/scene-layering/index.html) — core interaction user-verified on iPad Safari
 - **Experiment 02:** [Automatic Depth Sorting](experiments/automatic-depth-sorting/index.html) — core dragging and depth ordering user-verified on iPad Safari
 - **Experiment 03:** [Visual State Changes](experiments/visual-state-changes/index.html) — core interaction user-verified on iPad Safari
+- **Experiment 04:** [Simple Animation](experiments/simple-animation/index.html) — implemented, awaiting device test
 - **Research history and detailed experiment README:** [research/scene-layering branch](../../tree/research/scene-layering)
 
 **Website activation:** GitHub Pages must be enabled once in repository Settings → Pages → Build and deployment → Deploy from a branch → `main` → `/(root)`. Until then, GitHub shows source files, not a playable website. Expected Pages address once activated: `https://erikehresman-st1987.github.io/pixie-research/` (not yet verified live).
@@ -28,4 +29,5 @@ The existing games are not modified by this research. The dashboard can display 
 - Scene Layering: core interaction user-verified on iPad Safari.
 - Automatic Depth Sorting: core interaction user-verified on iPad Safari; [research branch](../../tree/research/automatic-depth-sorting).
 - Visual State Changes: core interaction user-verified on iPad; [research branch](../../tree/research/visual-state-changes).
+- Simple Animation: implemented, awaiting device test; [research branch](../../tree/research/simple-animation).
 - Demos use pinned online PixiJS 8.21.0 scripts. Offline hosting is not yet tested.
