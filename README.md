@@ -1,6 +1,6 @@
 # Experiment 01 — Scene Layering
 
-**Status:** Implemented; awaiting browser/device verification. **Branch:** `research/scene-layering`
+**Status:** Partially verified on iPad Safari (user-reported, 2026-10-09); further checks pending. **Branch:** `research/scene-layering`
 
 ## Objective
 Learn PixiJS v8 container hierarchy, drawing order, interactive objects, and state-driven visual changes with the smallest useful demonstration.
@@ -22,19 +22,21 @@ Open `index.html` in a modern browser with internet access. It loads PixiJS **8.
 - Controls are HTML buttons for clear touch targets.
 
 ## Verified results
-None yet. Successful commit is **not** browser or device verification.
+- **User-reported iPad Safari test (2026-10-09), on the deployed GitHub Pages demonstration:** after the canvas sizing fix, the marker moved between positions and could be placed both behind and in front of the wall; the layering effect was visible and functional.
+- This verifies the core single-marker visual layering interaction on that device. It does **not** verify marker selection/status, persistence of selection, other devices, or measured performance.
+- **Deployment note:** The working demo tested by the user is hosted at `main/experiments/scene-layering/index.html`; the branch-root `index.html` remains the earlier exploratory version. Refer to the deployed demo for this observed result.
 
 ## Reusable portions
-**Candidates, not yet validated:** container-based scene layering, reparenting for depth changes, simple state-to-render updates, and HTML/Pixi separation.
+**Observed working on iPad Safari:** basic container layering, marker reparenting for occlusion, and button-driven visual state changes in the deployed demonstration. **Not yet validated as general-purpose modules:** cross-device behavior, scalability, and performance.
 
 ## Limitations and open questions
 - No artwork, persistence, animation, camera, or dynamic depth sorting.
 - CDN dependency means this proof requires internet; local vendoring can be tested separately.
-- Needs iPhone/iPad/desktop interaction and resize checks.
+- iPad Safari core interaction was user-tested; iPhone, desktop, selection/status, and resize/orientation checks remain unverified.
 - Reparenting is demonstrated for one object only; performance with many moving objects is untested.
 
 ## Complexity / performance
 Expected low complexity; actual performance not measured.
 
 ## Next step
-Run the demo, record observed results here, and decide what (if anything) to promote to `main`.
+Optionally test selection and orientation, then decide whether the example is sufficient as a reference; do not assume broad performance or cross-device validation.
