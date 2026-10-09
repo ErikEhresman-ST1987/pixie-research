@@ -35,3 +35,7 @@ The existing games are not modified by this research. The dashboard can display 
 - **Experiment 06:** [Local Environmental Reactions](experiments/local-environmental-reactions/index.html) — implemented, awaiting device test
 - **Research synthesis:** [Findings 01–05 and future game examples](RESEARCH-FINDINGS-01-05.md)
 - Demos use pinned online PixiJS 8.21.0 scripts. Offline hosting is not yet tested.
+
+## Experiment 07
+
+[Ambient Life](EXPERIMENT-07.md) — implemented; real-device verification pending.
