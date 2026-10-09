@@ -5,7 +5,8 @@ A lightweight, incremental PixiJS learning laboratory and reference library.
 ## One-place testing
 
 - **Dashboard source:** [index.html](index.html)
-- **Experiment 01:** [Scene Layering](experiments/scene-layering/index.html)
+- **Experiment 01:** [Scene Layering](experiments/scene-layering/index.html) — core interaction user-verified on iPad Safari
+- **Experiment 02:** [Automatic Depth Sorting](experiments/automatic-depth-sorting/index.html) — implemented, awaiting device test
 - **Research history and detailed experiment README:** [research/scene-layering branch](../../tree/research/scene-layering)
 
 **Website activation:** GitHub Pages must be enabled once in repository Settings → Pages → Build and deployment → Deploy from a branch → `main` → `/(root)`. Until then, GitHub shows source files, not a playable website. Expected Pages address once activated: `https://erikehresman-st1987.github.io/pixie-research/` (not yet verified live).
@@ -23,5 +24,6 @@ The existing games are not modified by this research. The dashboard can display 
 
 ## Current status
 
-- Scene Layering: implemented, not yet browser/device verified.
-- The demo currently uses a pinned online PixiJS 8.21.0 script. Offline hosting is not yet tested.
+- Scene Layering: core interaction user-verified on iPad Safari.
+- Automatic Depth Sorting: implemented, awaiting device test; [research branch](../../tree/research/automatic-depth-sorting).
+- Demos use pinned online PixiJS 8.21.0 scripts. Offline hosting is not yet tested.
