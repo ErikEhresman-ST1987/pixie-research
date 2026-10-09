@@ -1,6 +1,6 @@
 # Experiment 06 — Local Environmental Reactions
 
-**Status:** Implemented, awaiting real-device verification.
+**Status:** All three touch responses observed on iPad; grass visual quality needs refinement (2026-10-09). Other controls and performance unverified.
 
 ## Question and baseline
 Can brief, localized touch responses make a small world feel responsive without simulating it? The baseline is the same static landscape with Reactions OFF.
@@ -16,7 +16,7 @@ PixiJS 8.21.0; one responsive world with grass, a stone, and pond. Tap grass for
 5. Reset and confirm default behavior returns.
 
 ## Verified results
-None yet; device test pending.
+**User-reported iPad test (2026-10-09):** All three objects reacted to touch. The stone displayed a gold circular outline, which reads as an interaction highlight. The water displayed an expanding white ring resembling a ripple. The grass swung left to right and appeared to rotate around a pin at its center rather than bend naturally. The first two responses are usable visual cues; the grass reaction is technically triggered but aesthetically unsuccessful. The user did not separately report Reactions OFF, Reduced Motion, Reset, repeated-tap behavior, or performance measurements.
 
 ## Reusable candidates and limits
-Potential approved uses: Little Field Farm plant feedback, Stranded Colony world interaction, Haven’s Reach console feedback. These are examples, not implementation authorization. No production art, gameplay state changes, fluid/vegetation physics, cross-device testing, or performance measurements. Reduced-motion static cues persist until Reset or motion resumes; evaluate this prototype choice.
+Potential approved uses: Little Field Farm plant feedback, Stranded Colony world interaction, Haven’s Reach console feedback. These are examples, not implementation authorization. No production art, gameplay state changes, fluid/vegetation physics, cross-device testing, or performance measurements. Reduced-motion static cues persist until Reset or motion resumes; evaluate this prototype choice. **Next improvement candidate:** bend grass blades near their base or deform individual blades instead of rotating the entire clump around its center. Do not claim that candidate is verified until tested.
