@@ -1,33 +1,36 @@
-# Pixie Research
+# Experiment 05 — Environmental Atmosphere
 
-A lightweight, incremental PixiJS learning laboratory and reference library.
+**Status:** Implemented, awaiting real-device verification. **Branch:** `research/environmental-atmosphere`.
 
-## One-place testing
+## Objective
+Determine whether simple low-cost water ripples, drifting mist, and a lighting overlay meaningfully enrich a static pond scene without requiring shaders, filters, or a full animation engine.
 
-- **Dashboard source:** [index.html](index.html)
-- **Experiment 01:** [Scene Layering](experiments/scene-layering/index.html) — core interaction user-verified on iPad Safari
-- **Experiment 02:** [Automatic Depth Sorting](experiments/automatic-depth-sorting/index.html) — core dragging and depth ordering user-verified on iPad Safari
-- **Experiment 03:** [Visual State Changes](experiments/visual-state-changes/index.html) — core interaction user-verified on iPad Safari
-- **Experiment 04:** [Simple Animation](experiments/simple-animation/index.html) — core motion and controls user-verified on iPad
-- **Research history and detailed experiment README:** [research/scene-layering branch](../../tree/research/scene-layering)
+## Implementation
+PixiJS 8.21.0 from a pinned CDN. A static illustrated pond landscape uses Graphics primitives. Seven ellipse-outline ripples scale and fade, five transparent ellipse mist shapes drift and vary opacity, and a warm full-scene lighting overlay changes alpha subtly. A single ticker drives effects. Atmosphere ON/OFF hides or shows all three effects; Reduced Motion keeps effects visible but stationary; Pause freezes the animation phase; Reset restores defaults. Canvas scales to fit touch devices.
 
-**Website activation:** GitHub Pages must be enabled once in repository Settings → Pages → Build and deployment → Deploy from a branch → `main` → `/(root)`. Until then, GitHub shows source files, not a playable website. Expected Pages address once activated: `https://erikehresman-st1987.github.io/pixie-research/` (not yet verified live).
+## Test procedure
+1. Open Experiment 05 through the [research dashboard](https://erikehresman-st1987.github.io/pixie-research/).
+2. Observe water, mist, and lighting for a short period. Do they feel pleasant and smooth, or distracting?
+3. Turn Atmosphere OFF and ON. Does the scene feel meaningfully different? All three effects should disappear and reappear.
+4. Turn Reduced Motion ON. Effects should remain visible but stop moving; OFF should restore motion.
+5. Pause and Resume. Effects should freeze at their current phase, then continue.
+6. Reset. Defaults should return.
 
-## Working method
+## Verified results
+None yet. Committed code is not device verification.
 
-1. Choose one capability, beginning with Level 1.
-2. Work in a `research/*` branch with a current README: objective, implementation, verified and unverified results, reusable parts, failures, and limitations.
-3. Make the current test accessible from the single dashboard. This is a **test preview**, not promotion of the technique as validated.
-4. Run the experiment in a browser on the actual device; record what happened.
-5. Keep useful, verified examples as references; discard or label unsuccessful work. Extract a shared module only when genuine reuse justifies it.
-6. Favor high payoff with low total complexity and comfortable device headroom.
+## Reusable candidates
+- Lightweight water ripple loops using scale and alpha.
+- Slow drifting transparency layers for mist.
+- Simple lighting overlay with alpha changes.
+- Shared ticker and presentation-only motion state.
+- Independent atmosphere visibility, reduced motion, pause and reset controls.
 
-The existing games are not modified by this research. The dashboard can display unverified experiments; **validation status belongs to each experiment, not its location in the repository**.
+## Limitations and risks
+This is a proof of presentation techniques, not a benchmark of sustained frame rate, battery, or memory use. No actual water simulation, shader, particle engine, dynamic weather, sound, persistence, or offline support. The lighting overlay is intentionally simple and affects the entire scene. Mist and water are geometric approximations, not production art. Cross-device and performance testing pending.
 
-## Current status
+## Complexity / payoff
+Low implementation complexity; player-facing value requires visual judgment during device test.
 
-- Scene Layering: core interaction user-verified on iPad Safari.
-- Automatic Depth Sorting: core interaction user-verified on iPad Safari; [research branch](../../tree/research/automatic-depth-sorting).
-- Visual State Changes: core interaction user-verified on iPad; [research branch](../../tree/research/visual-state-changes).
-- Simple Animation: core motion and controls user-verified on iPad; [research branch](../../tree/research/simple-animation).
-- Demos use pinned online PixiJS 8.21.0 scripts. Offline hosting is not yet tested.
+## Next step
+Record user observations and decide which, if any, effects merit reuse.
