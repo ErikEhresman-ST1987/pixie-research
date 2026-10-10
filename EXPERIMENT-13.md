@@ -1,6 +1,6 @@
 # Experiment 13 — Viewport Culling
 
-**Status:** Implemented; awaiting iPad verification. **Branch:** `research/viewport-culling`.
+**Status:** Core viewport-culling behavior and smooth panning positively verified on iPad; numerical FPS and other devices unverified. **Branch:** `research/viewport-culling`.
 
 ## Objective
 Compare animated-object updates for a fixed larger-than-viewport world, with and without skipping animation updates for offscreen objects. Test whether panning and re-entry remain visually correct.
@@ -16,7 +16,7 @@ PixiJS 8.21.0; 2400×1500 geometric landscape with 300 independently animated bu
 5. Try directional buttons and Reset if convenient.
 
 ## Limitations
-This isolates **animation update culling**, not full rendering optimization. Offscreen PixiJS objects are hidden in both modes. There is still a loop over all 300 objects to determine visibility, and the test does not measure CPU time, GPU load, memory, or battery. For very large worlds a spatial index or chunking may eventually be appropriate, but is outside this experiment. No real-device results yet.
+This isolates **animation update culling**, not full rendering optimization. Offscreen PixiJS objects are hidden in both modes. There is still a loop over all 300 objects to determine visibility, and the test does not measure CPU time, GPU load, memory, or battery. For very large worlds a spatial index or chunking may eventually be appropriate, but is outside this experiment. **User-reported iPad results (2026-10-10):** With visibility optimization ON, approximately 50 of 300 objects were updated per frame at the observed location. Scrolling was smooth with zero noticeable lag, and user could not see any visual difference between optimization ON and OFF. Relative to the OFF mode's designed 300 updates, this represents approximately 83% fewer object animation updates at that location. The user did not supply FPS numbers or separately describe return-to-area behavior. This does not establish an 83% reduction in CPU/GPU work, frame time, or battery use.
 
 ## Potential use
 Large maps in Stranded Colony and Little Field Farm, if their actual scenes and approved architecture warrant it. No existing game modified.
