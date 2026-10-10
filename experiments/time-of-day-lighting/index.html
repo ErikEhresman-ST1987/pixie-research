@@ -11,15 +11,15 @@ const shade=new PIXI.Graphics().rect(0,0,800,600).fill(0xffffff);shade.alpha=0;w
 const glow=new PIXI.Graphics().ellipse(392,360,66,55).fill({color:0xffe4a0,alpha:.35}).ellipse(511,360,66,55).fill({color:0xffe4a0,alpha:.35}).roundRect(365,332,56,56,5).fill(0xffd782).roundRect(482,332,56,56,5).fill(0xffd782);glow.alpha=0;world.addChild(glow);
 const stars=new PIXI.Graphics();for(let i=0;i<22;i++){const x=24+(i*137)%746,y=25+(i*47)%205;stars.circle(x,y,i%4===0?2.4:1.4).fill(0xf7f4e0);}stars.alpha=0;world.addChild(stars);
 const shadows=new PIXI.Graphics().ellipse(480,470,195,30).fill({color:0x3b4560,alpha:.32}).ellipse(100,450,85,15).fill({color:0x3b4560,alpha:.22});shadows.alpha=0;world.addChild(shadows);
-const state={mode:'day',smooth:true,reduced:false,values:[0,0,0,0],target:[0,0,0,0]};const settings={day:[0,0,0,0],sunset:[.24,0,.12,.55],night:[.65,1,.92,.2]};
-function paint(){const [t,lights,star,shadow]=state.values;shade.tint=state.mode==='sunset'?0xf8a052:0x172e59;shade.alpha=t;glow.alpha=lights;stars.alpha=star;shadows.alpha=shadow;sun.alpha=1-Math.min(1,star*1.05);for(const b of document.querySelectorAll('[data-time]'))b.setAttribute('aria-pressed',String(b.dataset.time===state.mode));}
+const state={mode:'day',smooth:true,reduced:false,values:[0,0,0,0,0],target:[0,0,0,0,0]};const settings={day:[0,0,0,0,0],sunset:[.24,0,.12,.55,0],night:[.65,1,.92,.2,1]};function mixColor(a,b,f){const lerp=(x,y)=>Math.round(x+(y-x)*f);return (lerp((a>>16)&255,(b>>16)&255)<<16)|(lerp((a>>8)&255,(b>>8)&255)<<8)|lerp(a&255,b&255);}
+function paint(){const [t,lights,star,shadow,nightMix]=state.values;shade.tint=mixColor(0xf8a052,0x172e59,nightMix);shade.alpha=t;glow.alpha=lights;stars.alpha=star;shadows.alpha=shadow;sun.alpha=1-Math.min(1,star*1.05);for(const b of document.querySelectorAll('[data-time]'))b.setAttribute('aria-pressed',String(b.dataset.time===state.mode));}
 function report(){document.getElementById('smooth').textContent='Transitions: '+(state.smooth?'ON':'OFF');document.getElementById('reduce').textContent='Reduced motion: '+(state.reduced?'ON':'OFF');status.textContent=state.mode[0].toUpperCase()+state.mode.slice(1)+' selected · '+(state.smooth&&!state.reduced?'gentle transitions':'instant changes')+'.';}
 function select(mode){state.mode=mode;state.target=[...settings[mode]];if(!state.smooth||state.reduced)state.values=[...state.target];paint();report();}
 document.querySelectorAll('[data-time]').forEach(b=>b.addEventListener('click',()=>select(b.dataset.time)));
 document.getElementById('smooth').addEventListener('click',()=>{state.smooth=!state.smooth;if(!state.smooth)state.values=[...state.target];paint();report();});
 document.getElementById('reduce').addEventListener('click',()=>{state.reduced=!state.reduced;if(state.reduced)state.values=[...state.target];paint();report();});
 document.getElementById('reset').addEventListener('click',()=>{state.smooth=true;state.reduced=false;select('day');});
-app.ticker.add(t=>{if(state.smooth&&!state.reduced){const step=Math.min(1,Math.min(t.deltaMS,50)/1000*1.8);for(let i=0;i<4;i++)state.values[i]+=(state.target[i]-state.values[i])*step;paint();}});
+app.ticker.add(t=>{if(state.smooth&&!state.reduced){const step=Math.min(1,Math.min(t.deltaMS,50)/1000*1.8);for(let i=0;i<5;i++)state.values[i]+=(state.target[i]-state.values[i])*step;paint();}});
 function fit(){const w=host.clientWidth,h=host.clientHeight,s=Math.min(w/800,h/600);world.scale.set(s);world.position.set((w-800*s)/2,(h-600*s)/2);}new ResizeObserver(fit).observe(host);fit();select('day');
 })().catch(e=>{document.getElementById('status').textContent='Initialization error: '+e.message;});
 </script></main></body></html>
