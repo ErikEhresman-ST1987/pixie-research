@@ -51,3 +51,5 @@ The existing games are not modified by this research. The dashboard can display 
 - **Experiment 15:** [Smooth Camera Zoom](experiments/camera-zoom/index.html) — iPad verified lag-free-feeling pan, pleasant smooth zoom, instant zoom when smooth disabled, and unchanged visual appearance; numeric FPS, pinch and raster clarity unverified. [Research branch](../../tree/research/camera-zoom).
 
 - **Experiment 16:** [Interactive Object Selection](experiments/object-selection/index.html) — iPad verified correct selection at every zoom level and after panning; additional controls and other devices unverified. [Research branch](../../tree/research/object-selection).
+
+- **Experiment 17:** [Contextual Actions](experiments/contextual-actions/index.html) — object-specific actions, resource collection and independent workshop job; awaiting iPad verification. [Research branch](../../tree/research/contextual-actions).
