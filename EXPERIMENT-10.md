@@ -1,6 +1,6 @@
 # Experiment 10 — Weather and Rain
 
-**Status:** Implemented; real-device testing pending. **Branch:** `research/weather-rain`.
+**Status:** Light rain, heavy rain, and weather transitions visually verified on iPad; remaining controls and performance unverified. **Branch:** `research/weather-rain`.
 
 ## Research question
 Can an unchanged landscape convincingly communicate clear weather, light rain, and heavy rain using simple falling strokes, pond ripples, and a cool overlay rather than a particle engine or weather simulation?
@@ -16,7 +16,7 @@ PixiJS 8.21.0; static landscape with pond, tree, and cabin. Ninety-five determin
 5. Pause/Resume, Reduced Motion, Reset. Look for distracting or stuck artifacts.
 
 ## Verification
-No real-device results yet. No frame-rate, memory, battery, or cross-device measurements.
+**User-reported iPad results (2026-10-09):** Light rain and heavy rain looked excellent, and transitions between conditions worked well. This verifies qualitative visual effectiveness of both rainfall intensities and perceived transition behavior. The user did not separately report pond ripple quality, Pause/Resume, Reduced Motion, Reset, or precise performance. No frame-rate, memory, battery, or cross-device measurements.
 
 ## Potential reuse (examples, not authorization)
 Stranded Colony weather mood in explored areas; Little Field Farm rainfall around fields/pond; Haven's Reach exterior views only if appropriate to location and approved art. No game code modified.
