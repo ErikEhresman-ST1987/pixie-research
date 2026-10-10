@@ -42,4 +42,4 @@ The existing games are not modified by this research. The dashboard can display 
 
 - **Experiment 11:** [The Living Landscape](experiments/combined-scene/index.html) — combined visual effect and feature toggles positively verified on iPad; measured performance and remaining controls unverified. [Research branch](../../tree/research/combined-scene).
 
-- **Experiment 12:** [Mobile Rendering Headroom](experiments/rendering-headroom/index.html) — all three activity levels perceived smooth on iPad; numerical FPS and visual-value comparison pending. [Research branch](../../tree/research/rendering-headroom).
+- **Experiment 12:** [Mobile Rendering Headroom](experiments/rendering-headroom/index.html) — Quiet (8), Normal (47), and Busy (161) all reported smooth at displayed 60 FPS on iPad; visual-value comparison and sustained performance unverified. [Research branch](../../tree/research/rendering-headroom).
