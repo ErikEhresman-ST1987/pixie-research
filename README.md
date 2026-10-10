@@ -40,4 +40,4 @@ The existing games are not modified by this research. The dashboard can display 
 - **Experiment 10:** [Weather and Rain](experiments/weather-rain/index.html) — light/heavy rain and weather transitions visually verified on iPad; other controls and performance unverified
 - Demos use pinned online PixiJS 8.21.0 scripts. Offline hosting is not yet tested.
 
-- **Experiment 11:** [The Living Landscape](experiments/combined-scene/index.html) — combined-scene composition test published; awaiting iPad observations. [Research branch](../../tree/research/combined-scene).
+- **Experiment 11:** [The Living Landscape](experiments/combined-scene/index.html) — combined visual effect and feature toggles positively verified on iPad; measured performance and remaining controls unverified. [Research branch](../../tree/research/combined-scene).
