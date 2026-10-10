@@ -39,3 +39,7 @@ The existing games are not modified by this research. The dashboard can display 
 - **Experiment 09:** [Time of Day and Lighting](experiments/time-of-day-lighting/index.html) — sunset, night, and refined lighting transitions positively verified on iPad; other controls and performance unverified
 - **Experiment 10:** [Weather and Rain](experiments/weather-rain/index.html) — light/heavy rain and weather transitions visually verified on iPad; other controls and performance unverified
 - Demos use pinned online PixiJS 8.21.0 scripts. Offline hosting is not yet tested.
+
+## Experiment 11
+
+[The Living Landscape](EXPERIMENT-11.md) — combined ambient life, weather, lighting, and grass; real-device testing pending.
