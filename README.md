@@ -54,4 +54,4 @@ The existing games are not modified by this research. The dashboard can display 
 
 - **Experiment 17:** [Contextual Actions](experiments/contextual-actions/index.html) — iPad verified wood/water collection, inventory updates, and workshop supplies produced while water was selected; remaining controls not separately verified. [Research branch](../../tree/research/contextual-actions).
 
-- **Experiment 18:** [Tap-to-Move and Obstacle Avoidance](experiments/tap-to-move/index.html) — iPad verified obstacle avoidance, two speeds and route toggles; roof avoidance verified after correction; tree canopy collision issue found and corrected, awaiting focused iPad retest. [Research branch](../../tree/research/tap-to-move).
+- **Experiment 18:** [Tap-to-Move and Obstacle Avoidance](experiments/tap-to-move/index.html) — iPad verified obstacle avoidance, two speeds and route toggles; roof and tree canopy collision corrections both verified on iPad; core experiment complete. [Research branch](../../tree/research/tap-to-move).
