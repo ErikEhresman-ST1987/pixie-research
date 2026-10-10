@@ -1,6 +1,6 @@
 # Experiment 12 — Mobile Rendering Headroom
 
-**Status:** Implemented; iPad observation pending. **Branch:** `research/rendering-headroom`.
+**Status:** Perceived smoothness at Quiet, Normal, and Busy verified by user on iPad; numeric FPS and visual-value comparison pending. **Branch:** `research/rendering-headroom`.
 
 ## Research question
 How does the approximate browser-observed frame rate respond to different counts of lightweight animated elements in an otherwise unchanged PixiJS scene? Can fewer effects preserve a convincing presentation?
@@ -14,6 +14,10 @@ Displays active element count, activity level, and approximate observed FPS over
 
 ## iPad test
 Select Quiet, Normal, and Busy for about ten seconds each. Report FPS reading for each, whether motion appears smooth, and whether Busy adds worthwhile visual quality or mostly clutter. Try Pause/Resume and Reset if convenient. The user need not run any external tool or access a developer console.
+
+## User-reported iPad results (2026-10-09)
+
+User reported that **all three activity levels were smooth**, including Busy (161 animated elements). This establishes perceived smoothness on the tested iPad, not measured frame-rate stability, GPU load, battery cost, or performance headroom. No numerical FPS readings were provided. Whether Busy looks meaningfully better than Normal is also unreported. Pause/Resume and Reset were not separately verified.
 
 ## Measurement limitations
 FPS is derived from PixiJS ticker callbacks divided by elapsed wall time, not GPU frame timings. It can be capped by display refresh rate, browser scheduling, thermal/power conditions, or backgrounding. It is not an objective measure of battery use, memory, GPU load, or performance headroom. On its own, equal FPS at all settings does **not** prove equal cost. A more meaningful stress test or frame-time distribution would be a separate approved increment if justified. Rebuilding one Graphics object per frame is a simple experiment, not necessarily the optimal production architecture.
