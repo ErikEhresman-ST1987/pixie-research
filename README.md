@@ -37,4 +37,5 @@ The existing games are not modified by this research. The dashboard can display 
 - **Experiment 07:** [Ambient Life](experiments/ambient-life/index.html) — creature visuals user-verified on iPad; controls/activity comparison pending
 - **Experiment 08:** [Animated Production Activity](experiments/production-activity/index.html) — visuals, pause, effects-off progress independence, and reset user-verified on iPad; reduced-motion unverified
 - **Experiment 09:** [Time of Day and Lighting](experiments/time-of-day-lighting/index.html) — sunset, night, and refined lighting transitions positively verified on iPad; other controls and performance unverified
+- **Experiment 10:** [Weather and Rain](experiments/weather-rain/index.html) — implemented, awaiting device test
 - Demos use pinned online PixiJS 8.21.0 scripts. Offline hosting is not yet tested.
