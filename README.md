@@ -44,4 +44,4 @@ The existing games are not modified by this research. The dashboard can display 
 
 - **Experiment 12:** [Mobile Rendering Headroom](experiments/rendering-headroom/index.html) — Quiet (8), Normal (47), and Busy (161) all reported smooth at displayed 60 FPS on iPad; visual-value comparison and sustained performance unverified. [Research branch](../../tree/research/rendering-headroom).
 
-- **Experiment 13:** [Viewport Culling](experiments/viewport-culling/index.html) — skip offscreen animation updates while panning a larger world; awaiting iPad results. [Research branch](../../tree/research/viewport-culling).
+- **Experiment 13:** [Viewport Culling](experiments/viewport-culling/index.html) — iPad reported ~50 updates/frame with optimization ON versus designed 300 OFF, smooth panning and no visible difference; measured FPS and resource savings unverified. [Research branch](../../tree/research/viewport-culling).
