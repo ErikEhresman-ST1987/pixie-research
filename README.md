@@ -49,3 +49,5 @@ The existing games are not modified by this research. The dashboard can display 
 - **Experiment 14:** [Reusable Particle Effects](experiments/particle-recycling/index.html) — Reuse ON showed fixed 65/180 Graphics, zero destroyed, and 60 FPS in Gentle/Busy screenshots; Reuse OFF counter grew rapidly on iPad. OFF-mode FPS and resource savings unverified. [Research branch](../../tree/research/particle-recycling).
 
 - **Experiment 15:** [Smooth Camera Zoom](experiments/camera-zoom/index.html) — iPad verified lag-free-feeling pan, pleasant smooth zoom, instant zoom when smooth disabled, and unchanged visual appearance; numeric FPS, pinch and raster clarity unverified. [Research branch](../../tree/research/camera-zoom).
+
+- **Experiment 16:** [Interactive Object Selection](experiments/object-selection/index.html) — tap-to-select and inspect scene objects with pan/zoom; awaiting iPad verification. [Research branch](../../tree/research/object-selection).
