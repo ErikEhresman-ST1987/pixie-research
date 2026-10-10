@@ -1,6 +1,6 @@
 # Experiment 17 — Contextual Actions
 
-**Status:** Implemented; iPad testing pending. **Branch:** `research/contextual-actions`.
+**Status:** Core contextual action and independent workshop job behavior verified on iPad. **Branch:** `research/contextual-actions`.
 
 ## Research question
 Can object-specific actions be exposed in a readable HTML panel without covering the PixiJS scene, while selection, zoom, pan, and an independent timed activity remain reliable?
@@ -16,7 +16,7 @@ PixiJS 8.21.0. Four objects: workshop (Start Work, Inspect), pond (Collect Water
 5. Clear selection and Reset if convenient.
 
 ## Limits
-This is a minimal action-state experiment, not a production action system. Resource gathering is unlimited, inventory is ephemeral, and the job advances only while the page's ticker runs (no background/offline completion). There are no queues, save/restore, game balancing, or complex accessibility validations. No real-device results yet.
+This is a minimal action-state experiment, not a production action system. Resource gathering is unlimited, inventory is ephemeral, and the job advances only while the page's ticker runs (no background/offline completion). There are no queues, save/restore, game balancing, or complex accessibility validations. **User-reported iPad results (2026-10-10):** Water and wood were collected successfully. Inventory updated. Workshop produced supplies while the water location was selected. This verifies the central separation between action/job state and currently selected object, plus basic resource action feedback. The user did not separately report results for all Inspect actions, every zoom level, drag/selection edge cases, Clear selection, Reset, or numerical performance.
 
 ## Potential reuse
 Stranded Colony's building/resource actions and Little Field Farm's machines, subject to separate game-specific approval. No existing games changed.
