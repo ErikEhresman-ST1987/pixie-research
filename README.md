@@ -41,3 +41,7 @@ The existing games are not modified by this research. The dashboard can display 
 - Demos use pinned online PixiJS 8.21.0 scripts. Offline hosting is not yet tested.
 
 - **Experiment 11:** [The Living Landscape](experiments/combined-scene/index.html) — combined visual effect and feature toggles positively verified on iPad; measured performance and remaining controls unverified. [Research branch](../../tree/research/combined-scene).
+
+## Experiment 12
+
+[Mobile Rendering Headroom](EXPERIMENT-12.md) — three activity levels and approximate on-device FPS, awaiting iPad test.
