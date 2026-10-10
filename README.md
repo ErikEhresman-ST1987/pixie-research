@@ -46,4 +46,4 @@ The existing games are not modified by this research. The dashboard can display 
 
 - **Experiment 13:** [Viewport Culling](experiments/viewport-culling/index.html) — iPad reported ~50 updates/frame with optimization ON versus designed 300 OFF, smooth panning and no visible difference; measured FPS and resource savings unverified. [Research branch](../../tree/research/viewport-culling).
 
-- **Experiment 14:** [Reusable Particle Effects](experiments/particle-recycling/index.html) — compare particle reuse versus destroy/recreate with allocation counters and FPS; awaiting iPad verification. [Research branch](../../tree/research/particle-recycling).
+- **Experiment 14:** [Reusable Particle Effects](experiments/particle-recycling/index.html) — Reuse ON showed fixed 65/180 Graphics, zero destroyed, and 60 FPS in Gentle/Busy screenshots; Reuse OFF counter grew rapidly on iPad. OFF-mode FPS and resource savings unverified. [Research branch](../../tree/research/particle-recycling).
