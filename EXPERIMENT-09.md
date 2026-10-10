@@ -1,6 +1,6 @@
 # Experiment 09 — Time of Day and Lighting
 
-**Status:** Implemented; real-device verification pending. **Branch:** `research/time-of-day-lighting`.
+**Status:** Sunset and night visual treatments positively verified on iPad; transitions and other controls not separately verified. **Branch:** `research/time-of-day-lighting`.
 
 ## Research question
 Can a single unchanged landscape read as day, sunset, and night using only cheap tint overlays, warm window lighting, stars, and shadows, without a dynamic lighting engine?
@@ -15,7 +15,7 @@ PixiJS 8.21.0 CDN, one responsive scene with fixed hills, house, pond, trees and
 4. Reduced Motion should change states instantly; Reset should return to day.
 
 ## Verification and limits
-Awaiting user test. No performance or battery measurements; no other device tested. These are illustrative flat-color lighting overlays, not physically accurate light/shadow simulation. Color/tint switching is immediate even when alpha transitions are gradual; watch for noticeable color jumps between sunset and night. The scene's built-in lights do not affect actual world geometry.
+**User-reported iPad observation (2026-10-09):** Night looked amazing; sunset looked good; overall lighting approach was very effective. This verifies qualitative visual payoff for these two treatments, with night especially successful. Day-versus-other comparisons, transition behavior, reduced-motion, reset, and readability under specific UI conditions were not separately reported. No performance or battery measurements; no other device tested. These are illustrative flat-color lighting overlays, not physically accurate light/shadow simulation. Color/tint switching is immediate even when alpha transitions are gradual; watch for noticeable color jumps between sunset and night. The scene's built-in lights do not affect actual world geometry.
 
 ## Potential reuse (not authorization)
 Stranded Colony settlement time-of-day mood, Little Field Farm gentle dusk scene, and Haven's Reach exterior views only if compatible with approved art and mechanics. No changes to those projects.
