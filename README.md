@@ -52,4 +52,4 @@ The existing games are not modified by this research. The dashboard can display 
 
 - **Experiment 16:** [Interactive Object Selection](experiments/object-selection/index.html) — iPad verified correct selection at every zoom level and after panning; additional controls and other devices unverified. [Research branch](../../tree/research/object-selection).
 
-- **Experiment 17:** [Contextual Actions](experiments/contextual-actions/index.html) — object-specific actions, resource collection and independent workshop job; awaiting iPad verification. [Research branch](../../tree/research/contextual-actions).
+- **Experiment 17:** [Contextual Actions](experiments/contextual-actions/index.html) — iPad verified wood/water collection, inventory updates, and workshop supplies produced while water was selected; remaining controls not separately verified. [Research branch](../../tree/research/contextual-actions).
