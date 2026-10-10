@@ -1,6 +1,6 @@
 # Experiment 12 — Mobile Rendering Headroom
 
-**Status:** Perceived smoothness at Quiet, Normal, and Busy verified by user on iPad; numeric FPS and visual-value comparison pending. **Branch:** `research/rendering-headroom`.
+**Status:** Perceived smoothness and displayed 60 FPS at Quiet, Normal, and Busy verified by user on iPad; visual-value comparison pending. **Branch:** `research/rendering-headroom`.
 
 ## Research question
 How does the approximate browser-observed frame rate respond to different counts of lightweight animated elements in an otherwise unchanged PixiJS scene? Can fewer effects preserve a convincing presentation?
@@ -17,7 +17,7 @@ Select Quiet, Normal, and Busy for about ten seconds each. Report FPS reading fo
 
 ## User-reported iPad results (2026-10-09)
 
-User reported that **all three activity levels were smooth**, including Busy (161 animated elements). This establishes perceived smoothness on the tested iPad, not measured frame-rate stability, GPU load, battery cost, or performance headroom. No numerical FPS readings were provided. Whether Busy looks meaningfully better than Normal is also unreported. Pause/Resume and Reset were not separately verified.
+User reported that **all three activity levels were smooth**, including Busy (161 animated elements). This establishes perceived smoothness on the tested iPad, not proof of sustained frame-rate stability across longer sessions, GPU load, battery cost, or unused performance headroom. Follow-up: user reported the displayed frame-rate reading was **60 FPS at Quiet (8 elements), Normal (47 elements), and Busy (161 elements)**. These are user-observed approximate on-device readings, not independently instrumented measurements. Whether Busy looks meaningfully better than Normal is also unreported. Pause/Resume and Reset were not separately verified.
 
 ## Measurement limitations
 FPS is derived from PixiJS ticker callbacks divided by elapsed wall time, not GPU frame timings. It can be capped by display refresh rate, browser scheduling, thermal/power conditions, or backgrounding. It is not an objective measure of battery use, memory, GPU load, or performance headroom. On its own, equal FPS at all settings does **not** prove equal cost. A more meaningful stress test or frame-time distribution would be a separate approved increment if justified. Rebuilding one Graphics object per frame is a simple experiment, not necessarily the optimal production architecture.
