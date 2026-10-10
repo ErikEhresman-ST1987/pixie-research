@@ -1,6 +1,6 @@
 # Experiment 11 — The Living Landscape
 
-**Status:** Implemented, awaiting real-device testing. **Branch:** `research/combined-scene`.
+**Status:** Combined visual effect and individual feature on/off interactions positively user-verified on iPad; remaining controls and measured performance unverified. **Branch:** `research/combined-scene`.
 
 ## Objective
 Determine whether individually successful low-complexity PixiJS effects remain visually coherent when combined: ambient butterflies/fireflies, grass movement, light rain with pond ripples, and sunset lighting.
@@ -15,7 +15,7 @@ One static landscape; independently toggled ambient life, rain, sunset, reduced 
 4. Try reduced motion, pause/resume, and reset if convenient. Report any visual defects or lag.
 
 ## Verification
-Unverified on real devices. No measured frame rate, battery, memory, or other-device results. Avoid treating multiple effects running as proof of performance headroom.
+**User-reported iPad observations (2026-10-09):** The combined scene was very effective visually. User played with switching features off and on. This supports successful visual composition and practical effect toggling, but does not establish that every toggle combination was exhaustively tested or that the scene achieved a measured frame rate. Reduced Motion, Pause/Resume, Reset, and other devices not separately reported. No measured frame rate, battery, or memory results. Avoid treating multiple effects running as proof of performance headroom.
 
 ## Limitations
 This is a composition test, not a reusable weather/lighting engine. The three controls are independent but the scene has simplified geometric art and no audio. Rain and sunset interpolation is gradual; creature motion and grass are direct per-frame procedural graphics. Reduced motion holds creatures and rain strokes in static positions rather than hiding them; this should be evaluated for comfort. Pause freezes visual time and transitions. Weather is cosmetic and does not affect game rules. No existing games modified.
