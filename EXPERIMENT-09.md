@@ -22,3 +22,7 @@ Stranded Colony settlement time-of-day mood, Little Field Farm gentle dusk scene
 
 ## Decision pending
 Evaluate visual readability and emotional payoff against one static scene. Keep, refine, or reject based on real-device observations.
+
+## Transition refinement — 2026-10-09
+
+User reported that the day/sunset/night transitions were not visibly apparent, although the static night and sunset scenes looked excellent. Inspection identified immediate switching of the overlay tint despite gradual alpha interpolation. Refined the implementation so sunset-to-night tint is interpolated along with overlay opacity, windows, stars, and shadows. The existing target looks remain unchanged. Published to the dashboard; **awaiting iPad retest**. Ask user to switch directly from Sunset to Night with Transitions ON, then compare with OFF. Note: a Day-to-Night change still begins with a transparent overlay, so perceptibility should be evaluated rather than assumed.
