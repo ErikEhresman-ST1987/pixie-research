@@ -1,6 +1,6 @@
 # Experiment 18 — Tap-to-Move and Obstacle Avoidance
 
-**Status:** Core navigation behavior verified on iPad; roof collision issue identified and correction published, awaiting focused retest. **Branch:** `research/tap-to-move`.
+**Status:** Core navigation behavior verified on iPad; roof correction user-verified; tree canopy collision issue identified and correction published, awaiting focused retest. **Branch:** `research/tap-to-move`.
 
 ## Objective
 Test whether a single character can navigate naturally toward a tapped location without passing through buildings, water or trees, with clear route feedback and low-friction iPad input.
@@ -18,4 +18,7 @@ This is a deliberately small fixed grid, not a production pathfinding engine. Th
 Settler navigation in Stranded Colony and character movement in Little Field Farm, only with separate game-specific design approval.
 
 ## iPad results and correction — 2026-10-10
-User reported the test was fun; pathfinding avoided obstacles, normal and fast walking both worked, and route display ON/OFF both worked. Destinations did not stop on obstacles, except that the settler could walk into the visually drawn house roofs while avoiding the main house bodies. This is a genuine discrepancy between collision rectangles and drawn artwork. Corrected both house navigation rectangles to include full visible roof extents (with existing 14px cell inflation unchanged), on the research branch and published preview. **Retest pending** for roof avoidance and any new awkward detours. Do not classify the collision fix as user-verified yet.
+User reported the test was fun; pathfinding avoided obstacles, normal and fast walking both worked, and route display ON/OFF both worked. Destinations did not stop on obstacles, except that the settler could walk into the visually drawn house roofs while avoiding the main house bodies. This is a genuine discrepancy between collision rectangles and drawn artwork. Corrected both house navigation rectangles to include full visible roof extents (with existing 14px cell inflation unchanged), on the research branch and published preview. **Roof retest passed:** user reported roof avoidance worked perfectly. A follow-up screenshot showed the settler at the top of a tree canopy, revealing the same artwork-vs-collision mismatch for trees. Both tree blockers were enlarged to include visible canopy extents plus existing grid inflation. **Tree retest pending.**
+
+## Follow-up: tree canopy correction
+User's iPad screenshot showed the yellow settler apparently overlapping the top of the lower tree. Enlarged both tree navigation rectangles to encompass the full drawn foliage and trunk, rather than only the smaller central region. The pathfinding algorithm and movement settings are unchanged. This update is implemented on the research branch and published preview; canopy avoidance awaits iPad retest.
